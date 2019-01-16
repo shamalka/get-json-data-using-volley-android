@@ -142,7 +142,11 @@ public class MainActivity extends AppCompatActivity {
                 r = layoutInflater.inflate(R.layout.quote_list_item,null,true);
                 r.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-
+                        Intent sendIntent = new Intent();
+                        sendIntent.setAction(Intent.ACTION_SEND);
+                        sendIntent.putExtra(Intent.EXTRA_TEXT, QuotesArray[position]);
+                        sendIntent.setType("text/plain");
+                        startActivity(sendIntent);
                     }
                 });
                 viewHolder = new ViewHolder(r);
